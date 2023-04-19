@@ -1,25 +1,31 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Ardalis.Specification;
+﻿using Ardalis.Specification;
+using Microsoft.EntityFrameworkCore;
 using MobyLabWebProgramming.Core.DataTransferObjects;
 using MobyLabWebProgramming.Core.Entities;
 using System.Linq.Expressions;
 
 namespace MobyLabWebProgramming.Core.Specifications;
 
-public sealed class CategorieProjectionSpec : BaseSpec<CategorieProjectionSpec, Categorie, CategorieDTO>
+public sealed class SubcategorieProjectionSpec : BaseSpec<SubcategorieProjectionSpec, Subcategorie, SubcategorieDTO>
 {
-    protected override Expression<Func<Categorie, CategorieDTO>> Spec => e => new()
+    protected override Expression<Func<Subcategorie, SubcategorieDTO>> Spec => e => new()
     {
         Id = e.Id,
         Name = e.Name,
-        Description = e.Description
+        Description = e.Description,
+        Categorie = new()
+        {
+            Id = e.Categorie.Id,
+            Name = e.Categorie.Name,
+            Description = e.Categorie.Description
+        },
     };
 
-    public CategorieProjectionSpec(Guid id) : base(id)
+    public SubcategorieProjectionSpec(Guid id) : base(id)
     {
     }
 
-    public CategorieProjectionSpec(string? search)
+    public SubcategorieProjectionSpec(string? search)
     {
         search = !string.IsNullOrWhiteSpace(search) ? search.Trim() : null;
 
