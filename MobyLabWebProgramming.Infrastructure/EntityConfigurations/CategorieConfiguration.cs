@@ -20,7 +20,7 @@ namespace MobyLabWebProgramming.Infrastructure.EntityConfigurations
                 .IsRequired();
             builder.Property(e => e.Description)
                 .HasMaxLength(4095)
-                .IsRequired(false);
+                .IsRequired();
         }
     }
 }
