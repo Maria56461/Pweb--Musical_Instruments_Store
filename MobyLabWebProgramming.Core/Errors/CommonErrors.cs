@@ -13,5 +13,6 @@ public static class CommonErrors
     public static ErrorMessage CategorieNotFound => new(HttpStatusCode.NotFound, "Category doesn't exist!", ErrorCodes.EntityNotFound);
     public static ErrorMessage SubcategorieNotFound => new(HttpStatusCode.NotFound, "Subcategory doesn't exist!", ErrorCodes.EntityNotFound);
     public static ErrorMessage InstrumentNotFound => new(HttpStatusCode.NotFound, "Instrument doesn't exist!", ErrorCodes.EntityNotFound);
+    public static ErrorMessage CosCumparaturiNotFound => new(HttpStatusCode.NotFound, "Cos Cumparaturi doesn't exist!", ErrorCodes.EntityNotFound);
 
 }
